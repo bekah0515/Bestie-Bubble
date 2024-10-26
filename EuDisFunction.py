@@ -39,9 +39,23 @@ userdatabase = { 'Peter' : {'a': 1, 'b': 2, 'c': 3},
 'Matrin' : {'a': 4, 'b': 3, 'c': 1}}
 user = 'Sally'
 
+
+
 #Weight each value by a multipler - Neutral x1, Not Important x0, Very Important x2, Required x50 
 #This would be added to the OG Dictionary --> Weight Dictionary can be fed into this.
 
+user_eu_dict = {}
+for otheruser in userdatabase:
+    if user != otheruser:
+        eudis = euclidean_distance(userdatabase[user], userdatabase[otheruser])
+        user_eu_dict[otheruser] = eudis
+    else:
+        continue
+print(user_eu_dict)
+
+
+#user = sys.argv[1]
+#userdict = sys.argv[2] formated user = { user : {'a': 3, 'b': 1, 'c': 1}}
 user_eu_dict = {}
 for otheruser in userdatabase:
     if user != otheruser:
