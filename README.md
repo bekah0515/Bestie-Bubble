@@ -1,2 +1,6 @@
 # Bestie-Bubble
-Bekah
+## Members
+Isobel  
+Lola 
+Bekah 
+
