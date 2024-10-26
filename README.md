@@ -1,2 +1,7 @@
 # Bestie-Bubble
-Konstantin
+## Members
+Isobel  
+Lola 
+Bekah  
+Konstantin  
+
