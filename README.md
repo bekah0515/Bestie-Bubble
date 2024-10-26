@@ -1,4 +1,5 @@
 # Bestie-Bubble
 
 ## Members
-1. Isobel
+Isobel
+Lola
