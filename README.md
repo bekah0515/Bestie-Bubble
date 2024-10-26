@@ -1,2 +1,7 @@
 # Bestie-Bubble
-Harshad Ingle
+## Members
+Isobel  
+Lola  
+Bekah  
+Konstantin  
+Harshad   
