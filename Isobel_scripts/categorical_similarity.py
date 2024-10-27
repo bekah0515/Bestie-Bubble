@@ -36,8 +36,9 @@ for name in data_dict:
     gower = gower_sum / len(user_data)
     gower_dict[name] = gower
 
-print(f'name\tjaccard\tgower')
+
+write_file = open('categorical_similarity.txt', 'w')
 for name in jaccard_dict:
-    print(f'{name}\t{jaccard_dict[name]}\t{gower_dict[name]:.2}')
+    write_file.write(f'{name}\t{jaccard_dict[name]}\t{gower_dict[name]}\n')
 
 #higher score is more similar for both calculations
