@@ -1,0 +1,7 @@
+big five personality traits:
+1. Openness(to experience) : cautious vs curious
+2. conscientiousness : efficient/organized, planned vs easygoing/careless, spontaneous
+3. extraversion: reserved vs outgoing
+4. agreeableness: challenging/detached vs friendly/compassionate
+5. neuroticism: secure/confident vs sensitive/nervous
+
