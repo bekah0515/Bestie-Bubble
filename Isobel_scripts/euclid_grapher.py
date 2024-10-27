@@ -55,4 +55,4 @@ distances['name'] = names
 
 fig = px.scatter(distances, x='Distance', y='y-axis', color='color', color_discrete_map='identity', symbol='marker', symbol_map='identity', size='size', text='name')
 fig.update_traces(offsetgroup=0, textposition='top center')
-fig.show()
+fig.write_image(f"images/{sorted_distances[0]}_bestie_matches.png", scale=2)
