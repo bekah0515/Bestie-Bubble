@@ -10,10 +10,10 @@ import matplotlib.pyplot as plt
 np.random.seed(42)
 
 # Parameters for the dataset
-num_people = 10000 # Number of people you want to generate
+num_people = 100 # Number of people you want to generate
 num_features = 5 # Number of features per person
 feature_min = 1  # Minimum value for each feature
-feature_max = 10 # Maximum value for each feature
+feature_max = 5 # Maximum value for each feature
 
 # Generate random people data
 random_people = np.random.randint(feature_min, feature_max + 1, size=(num_people, num_features))
