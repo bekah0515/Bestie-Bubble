@@ -41,7 +41,7 @@ names[0] = sorted_distances[0] + " 🦄"
 names[1] = sorted_distances[1] + " 🥇"
 names[2] = sorted_distances[2] + " 🥈"
 names[3] = sorted_distances[3] + " 🥉"
-names[len(sorted_dict) -1] = sorted_distances[len(sorted_dict)-1] + " 🤮"
+names[len(sorted_dict) -1] = sorted_distances[len(sorted_dict)-1] + " 🐸"
 
 column_label = ['Distance']
 distances = pandas.DataFrame.from_dict(sorted_dict, orient='index', columns=column_label)
