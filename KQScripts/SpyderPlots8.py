@@ -18,10 +18,6 @@
 # Then we use those as Keys in a new dictionary - values list of Floats
 # Floats are EuDistance for each category
 # Which ???? 
-JaneToEveryonDict = {'SAM' : [15.007117690507215, 1.232818367212533, 5.14426455264288, 14.295480754537278, 8.700464600184073], 'BIGGY' : [10.951623619924739, 14.432954416749684, 12.55402720518349, 12.651426201980513, 5.449679332906876], 'SMOLLY' : [7.359348076380026, 9.825220925088779, 2.3038949478616586, 12.423191453907853, 11.42640450424118]}
-
-def DictToDis(InputDict, user, match):
-       
 
 # A_dis = 
 # Es_dis = 
@@ -34,7 +30,7 @@ def DictToDis(InputDict, user, match):
 def SpyderScoresDF(A_dis, Es_dis, Ex_dis, C_dis, O_dis): #We need to transform euclidean distances into a INT between 0 and 100.
        import pandas as pd
        from math import sqrt
-       max_dis = sqrt(250)
+       max_dis = sqrt(250) #This will be 5 for the pre-averaged output
        A_scr = int((A_dis/max_dis) * 100)
        Es_scr = int((Es_dis/max_dis) * 100)
        Ex_scr = int((Ex_dis/max_dis) * 100)
