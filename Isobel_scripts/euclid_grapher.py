@@ -1,10 +1,8 @@
-#!/Users/pfb2024/mamba/envs/bestie_bubble/bin/python
+#!/usr/bin/env python3
 
 import pandas
 import plotly.express as px
 import random
-import plotly.graph_objs as go
-import emoji
 
 def euclid_grapher(distances, user_name):
     #distances needs to be pandas dataframe
@@ -30,6 +28,7 @@ colors[0] = 'magenta'
 colors[1] = '#FFD700'
 colors[2] = '#C0C0C0'
 colors[3] = '#CD7F32'
+colors[len(sorted_dict)-1] = "#8FC554"
 
 markers = ['circle'] * len(sorted_dict)
 markers[0] = 'star'
@@ -38,24 +37,22 @@ sizes = [5] * len(sorted_dict)
 sizes[0] = 20
 
 names = [''] * len(sorted_dict)
-names[0] = sorted_distances[0]
-names[1] = sorted_distances[1]
-names[2] = sorted_distances[2]
-names[3] = sorted_distances[3]
+names[0] = sorted_distances[0] + " 🦄"
+names[1] = sorted_distances[1] + " 🥇"
+names[2] = sorted_distances[2] + " 🥈"
+names[3] = sorted_distances[3] + " 🥉"
+names[len(sorted_dict) -1] = sorted_distances[len(sorted_dict)-1] + " 🤮"
 
-final_name = len(sorted_dict) - 1
-print(type(final_name))
-
-# column_label = ['Distance']
-# distances = pandas.DataFrame.from_dict(sorted_dict, orient='index', columns=column_label)
-# distances['color'] = colors
-# distances['marker'] = markers
-# distances['y-axis'] = 0
-# distances['size'] = sizes
-# distances['name'] = names
+column_label = ['Distance']
+distances = pandas.DataFrame.from_dict(sorted_dict, orient='index', columns=column_label)
+distances['color'] = colors
+distances['marker'] = markers
+distances['y-axis'] = 0
+distances['size'] = sizes
+distances['name'] = names
 
 
 
-# fig = px.scatter(distances, x='Distance', y='y-axis', color='color', color_discrete_map='identity', symbol='marker', symbol_map='identity', size='size', text='name')
-# fig.update_traces(offsetgroup=0)
-# fig.show()
+fig = px.scatter(distances, x='Distance', y='y-axis', color='color', color_discrete_map='identity', symbol='marker', symbol_map='identity', size='size', text='name')
+fig.update_traces(offsetgroup=0, textposition='top center')
+fig.show()
