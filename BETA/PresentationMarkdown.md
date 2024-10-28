@@ -116,12 +116,50 @@ if __name__ == "__main__":
         json.dump(user_dict, file)
 
 
-```
 
 ### Reading in User Input as a New Line
 
 ## Reading in Categorical Data
+
 ## K-Nearest Neighbors Algorithm on Numerical Data
+The K-Nearest Neighbors algorithm is a powerful tool used in machine learning and pattern recognition to gorup or classify data. Given an item, this algorithm looks for the most similar items it has seen before and makes predictions or classifications based on them. Many social media and music platforms, such as Spotify, uses this algorithm to suggest new music you may enjoy!
+
+1. For each user we need a list of values corresponding to each attribute (e.g. {user:[a,b,c,d,e]})
+    a. pull answers from input file/dictionary per person
+    b. average the scores for each attribute
+    c. assign username as key and a list of these scores as value.
+2. Do the same for my representative data (database from which I want to find a match) as well. (e.g. {'name':[a,b,c,d,e], 'name2':[a,b,c,d,e],...})
+3. Activate nearest-neighbors object and run the nearest neighbors algorithm, which creates tree-structures for fast and efficient searching of nearest-neighbors and spits out your top n nearest neighbors!
+    In this algorithm, "representative_points" refers to the 'database' and "new_points" refers to the new user we want to match.
+```
+    #Initialize the NearestNeighbors model to find the 3 nearest neighbors
+    n_neighbors = 3
+    nearest_neighbors = NearestNeighbors(n_neighbors=n_neighbors, algorithm='auto')
+
+    #Fit the model on the representative points
+    nearest_neighbors.fit(representative_points)
+
+    #Find the nearest neighbors for each new user
+    distances, indices = nearest_neighbors.kneighbors(new_points)
+
+    #Output the results
+    for i, (dists, idxs) in enumerate(zip(distances, indices)):
+        match_name_list = [representative_points_names[idx] for idx in idxs]
+        user_name = new_point_names[i]
+        print(f"Name:{user_name}") 
+        print("Indices of Nearest Neighbors:", idxs)
+        print("Names of top 3 matches:", match_name_list)
+        print("Distances to Nearest Neighbors:", dists)
+```
+4. Report output as the name of user, the indices of the matches, their corresponding names, and the distances between user and each match.
+5. Visualize this matching by PCA dimension reduction and plotting the first two PCA values.
+Example:
+![nearest_neighbor_plot](https://github.com/user-attachments/assets/5b316d80-4301-451b-8a98-f375acdf76cd)
+
+
+
+
+4. 
 ## Spyder Plotting Simularity Scores
 
 #### TopMatchDict.py
