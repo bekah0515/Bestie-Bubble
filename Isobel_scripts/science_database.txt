@@ -1,0 +1,100 @@
+Emma Johnson	South	Neuroscience	Wet	Minimal	Arabidopsis	Coding
+Liam Smith	West	Neuroscience	Both	Lots	Zebrafish	Western Blot
+Ava Brown	South	Chemistry	Both	Minimal	Human	Western Blot
+Noah Davis	North East	Ecology	Both	Minimal	Yeast	Western Blot
+Isabella Miller	Midwest	Molecular Biology	Both	Lots	Yeast	Coding
+Lucas Wilson	Midwest	Bioinformatics	Both	Minimal	Human	Western Blot
+Mia Moore	Midwest	Bioinformatics	Dry	Lots	Zebrafish	Sequencing
+Mason Taylor	South	Neuroscience	Both	Minimal	Zebrafish	Flow Cytometry
+Sophia Anderson	Midwest	Neuroscience	Both	Minimal	Non-Model Organism	Microscopy
+Ethan Thomas	North East	Ecology	Dry	Minimal	Fly	Western Blot
+Charlotte Jackson	West	Chemistry	Wet	Some	Mouse	Sequencing
+Oliver White	South	Molecular Biology	Dry	Some	None	Coding
+Amelia Harris	Midwest	Bioinformatics	Wet	Minimal	Zebrafish	Coding
+Elijah Martin	North East	Molecular Biology	Wet	Minimal	None	Western Blot
+Harper Thompson	South	Molecular Biology	Dry	Minimal	Fly	Flow Cytometry
+Aiden Garcia	South	Ecology	Wet	Minimal	Non-Model Organism	Western Blot
+Evelyn Martinez	West	Molecular Biology	Both	Some	Mouse	Western Blot
+James Robinson	North East	Molecular Biology	Dry	Lots	Non-Model Organism	Coding
+Scarlett Clark	North East	Bioinformatics	Dry	Lots	None	Sequencing
+Benjamin Rodriguez	South	Ecology	Dry	Some	Mouse	Western Blot
+Grace Lewis	West	Chemistry	Both	Minimal	Fly	Microscopy
+Jacob Lee	West	Chemistry	Both	Lots	Fly	Flow Cytometry
+Lily Walker	West	Molecular Biology	Both	Minimal	Human	Coding
+Michael Hall	North East	Molecular Biology	Both	Lots	Non-Model Organism	Coding
+Chloe Allen	West	Bioinformatics	Both	Some	None	Microscopy
+Alexander Young	North East	Ecology	Both	Lots	Fly	Sequencing
+Ella King	North East	Neuroscience	Dry	Minimal	None	Flow Cytometry
+William Wright	West	Chemistry	Dry	Some	Human	Sequencing
+Zoe Scott	South	Molecular Biology	Wet	Some	Human	Western Blot
+Daniel Green	South	Neuroscience	Dry	Lots	Mouse	Coding
+Stella Adams	North East	Ecology	Dry	Some	Human	Western Blot
+Matthew Baker	Midwest	Chemistry	Wet	Some	None	Sequencing
+Aria Gonzalez	Midwest	Molecular Biology	Both	Minimal	Worm	Flow Cytometry
+Henry Nelson	Midwest	Molecular Biology	Wet	Some	Mouse	Sequencing
+Lucy Carter	West	Chemistry	Both	Lots	Non-Model Organism	Sequencing
+Samuel Mitchell	North East	Molecular Biology	Wet	Some	Zebrafish	Coding
+Layla Perez	West	Bioinformatics	Wet	Lots	Mouse	Coding
+David Roberts	North East	Chemistry	Both	Minimal	Human	Microscopy
+Aurora Turner	North East	Bioinformatics	Wet	Lots	None	Western Blot
+Jackson Phillips	West	Molecular Biology	Wet	Minimal	None	Western Blot
+Natalie Campbell	North East	Bioinformatics	Wet	Some	Human	Coding
+Sebastian Parker	Midwest	Ecology	Dry	Minimal	Zebrafish	Microscopy
+Victoria Evans	West	Ecology	Dry	Minimal	Mouse	Coding
+Carter Edwards	South	Molecular Biology	Dry	Lots	Human	Flow Cytometry
+Ellie Collins	South	Neuroscience	Both	Lots	None	Sequencing
+Wyatt Stewart	North East	Bioinformatics	Both	Minimal	None	Western Blot
+Savannah Sanchez	Midwest	Ecology	Both	Lots	Worm	Western Blot
+Anthony Morris	North East	Bioinformatics	Wet	Minimal	Yeast	Western Blot
+Maya Rogers	Midwest	Ecology	Dry	Lots	Non-Model Organism	Microscopy
+Isaac Reed	North East	Neuroscience	Both	Some	Zebrafish	Coding
+Aubrey Cook	North East	Neuroscience	Both	Some	Fly	Flow Cytometry
+Christopher Morgan	Midwest	Bioinformatics	Wet	Lots	Non-Model Organism	Sequencing
+Hazel Bell	Midwest	Ecology	Both	Some	Mouse	Microscopy
+Nathan Murphy	Midwest	Molecular Biology	Both	Some	Human	Sequencing
+Lucy Rivera	West	Molecular Biology	Both	Minimal	Arabidopsis	Microscopy
+Samuel Cooper	South	Molecular Biology	Both	Minimal	Fly	Flow Cytometry
+Bella Bailey	Midwest	Chemistry	Both	Minimal	Worm	Sequencing
+Gabriel Rivera	South	Molecular Biology	Both	Some	Non-Model Organism	Flow Cytometry
+Charlotte Diaz	South	Molecular Biology	Dry	Minimal	Fly	Flow Cytometry
+Daniel Ramirez	Midwest	Ecology	Wet	Minimal	Yeast	Coding
+Penelope Hughes	Midwest	Chemistry	Dry	Some	Zebrafish	Flow Cytometry
+David Simmons	South	Neuroscience	Dry	Lots	Human	Flow Cytometry
+Clara Foster	North East	Bioinformatics	Dry	Some	Zebrafish	Coding
+Wyatt Morales	Midwest	Chemistry	Dry	Lots	Human	Sequencing
+Nora Butler	South	Neuroscience	Both	Minimal	Human	Microscopy
+Anthony Gonzalez	North East	Neuroscience	Wet	Lots	Human	Flow Cytometry
+Leah Wood	South	Bioinformatics	Dry	Lots	Human	Flow Cytometry
+Leo Washington	West	Bioinformatics	Wet	Minimal	Yeast	Flow Cytometry
+Evelyn Sanchez	North East	Bioinformatics	Wet	Some	Yeast	Western Blot
+Dylan Kim	North East	Bioinformatics	Wet	Lots	Human	Microscopy
+Stella Price	North East	Bioinformatics	Both	Minimal	Fly	Coding
+Caleb Barnes	North East	Bioinformatics	Both	Lots	None	Microscopy
+Aria Bennett	Midwest	Chemistry	Wet	Lots	Non-Model Organism	Microscopy
+Eli Powell	West	Molecular Biology	Dry	Minimal	None	Microscopy
+Sadie Jenkins	Midwest	Chemistry	Both	Lots	Arabidopsis	Microscopy
+Julian Murphy	Midwest	Neuroscience	Wet	Minimal	Yeast	Coding
+Brooklyn Hayes	West	Molecular Biology	Wet	Lots	Arabidopsis	Flow Cytometry
+Adam Ross	South	Neuroscience	Both	Some	Human	Microscopy
+Caroline Long	West	Neuroscience	Wet	Lots	Worm	Microscopy
+Austin Ward	South	Bioinformatics	Dry	Lots	Worm	Sequencing
+Anna Rivera	North East	Chemistry	Dry	Minimal	Fly	Flow Cytometry
+Gabriel Bennett	South	Ecology	Wet	Minimal	Human	Sequencing
+Maya Foster	Midwest	Neuroscience	Both	Lots	Human	Flow Cytometry
+Jackson Hayes	South	Chemistry	Wet	Minimal	Arabidopsis	Coding
+Madeline Gray	South	Molecular Biology	Both	Some	Non-Model Organism	Sequencing
+Connor James	North East	Chemistry	Both	Some	Non-Model Organism	Microscopy
+Alexis Lee	West	Neuroscience	Both	Lots	Yeast	Coding
+Ryan Cooper	North East	Chemistry	Dry	Minimal	Worm	Microscopy
+Lily Ramirez	North East	Bioinformatics	Dry	Lots	Zebrafish	Coding
+Nathaniel Stewart	Midwest	Molecular Biology	Wet	Some	Non-Model Organism	Coding
+Lucy Parker	North East	Neuroscience	Wet	Some	Non-Model Organism	Microscopy
+Charles Simmons	West	Ecology	Dry	Lots	Fly	Coding
+Chloe Hughes	West	Neuroscience	Wet	Some	Worm	Microscopy
+Oliver Ross	South	Bioinformatics	Both	Lots	Arabidopsis	Western Blot
+Mia Gray	South	Neuroscience	Wet	Minimal	Mouse	Microscopy
+Jason Jenkins	West	Bioinformatics	Both	Some	Worm	Microscopy
+Layla Torres	South	Ecology	Both	Minimal	Yeast	Coding
+Andrew Sanders	North East	Molecular Biology	Wet	Lots	Mouse	Western Blot
+Sophia Price	Midwest	Bioinformatics	Dry	Minimal	None	Flow Cytometry
+Lucas Edwards	South	Molecular Biology	Wet	Minimal	Fly	Flow Cytometry

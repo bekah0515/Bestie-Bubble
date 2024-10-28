@@ -62,24 +62,41 @@ if not os.path.exists('images'):
 
 
 fig1 = px.scatter(similarities, x='Gower', y='y-axis', color='color', color_discrete_map='identity', symbol='marker', symbol_map='identity', size='size')
-fig1.update_traces(offsetgroup=0)
 fig1.update_yaxes(visible=False)
 fig1.update_layout(xaxis_title='Gower Similarity')
-for distance in sorted_sims:
-    if names[sorted_sims.index(distance)] != "":
-        fig1.add_annotation(x=sorted_dict[distance]['Gower'],y=0, 
-                        text=names[sorted_sims.index(distance)], 
-                        showarrow=True, arrowhead=1, textangle=75)
+fig1.add_annotation(x=similarity_dict[sorted_sims[0]]['Gower'],y=0, text=names[0], showarrow=True, arrowhead=1, textangle=75)
+fig1.add_annotation(x=similarity_dict[sorted_sims[len(sorted_sims)-1]]['Gower'],y=0, text=names[len(sorted_sims)-1], showarrow=True, arrowhead=1, textangle=75)
+if similarity_dict[sorted_sims[0]]['Gower'] == similarity_dict[sorted_sims[1]]['Gower']:
+    fig1.add_annotation(x=similarity_dict[sorted_sims[1]]['Gower']-.05,y=0, text=names[1], showarrow=True, arrowhead=1, textangle=75)
+else:
+    fig1.add_annotation(x=similarity_dict[sorted_sims[1]]['Gower'],y=0, text=names[1], showarrow=True, arrowhead=1, textangle=75)
+if similarity_dict[sorted_sims[1]]['Gower'] == similarity_dict[sorted_sims[2]]['Gower']:
+    fig1.add_annotation(x=similarity_dict[sorted_sims[2]]['Gower']-.05,y=0, text=names[2], showarrow=True, arrowhead=1, textangle=75)
+else:
+    fig1.add_annotation(x=similarity_dict[sorted_sims[2]]['Gower'],y=0, text=names[2], showarrow=True, arrowhead=1, textangle=75)
+if similarity_dict[sorted_sims[2]]['Gower'] == similarity_dict[sorted_sims[3]]['Gower']:
+    fig1.add_annotation(x=similarity_dict[sorted_sims[3]]['Gower']-.05,y=0, text=names[3], showarrow=True, arrowhead=1, textangle=75)
+else:
+    fig1.add_annotation(x=similarity_dict[sorted_sims[3]]['Gower'],y=0, text=names[3], showarrow=True, arrowhead=1, textangle=75)
 fig1.write_image(f"images/{sorted_sims[0]}_gower_matches.png", scale=2)
 
 
 fig2 = px.scatter(similarities, x='Jaccard', y='y-axis', color='color', color_discrete_map='identity', symbol='marker', symbol_map='identity', size='size')
-fig2.update_traces(offsetgroup=0)
 fig2.update_yaxes(visible=False)
 fig2.update_layout(xaxis_title='Jaccard Similarity')
-for distance in sorted_sims:
-    if names[sorted_sims.index(distance)] != "":
-        fig2.add_annotation(x=sorted_dict[distance]['Jaccard'],y=0, 
-                        text=names[sorted_sims.index(distance)], 
-                        showarrow=True, arrowhead=1, textangle=75)
+fig2.add_annotation(x=similarity_dict[sorted_sims[0]]['Jaccard'],y=0, text=names[0], showarrow=True, arrowhead=1, textangle=75)
+fig2.add_annotation(x=similarity_dict[sorted_sims[len(sorted_sims)-1]]['Jaccard'],y=0, text=names[len(sorted_sims)-1], showarrow=True, arrowhead=1, textangle=75)
+if similarity_dict[sorted_sims[0]]['Jaccard'] == similarity_dict[sorted_sims[1]]['Jaccard']:
+    fig2.add_annotation(x=similarity_dict[sorted_sims[1]]['Jaccard']-.05,y=0, text=names[1], showarrow=True, arrowhead=1, textangle=75)
+else:
+    fig2.add_annotation(x=similarity_dict[sorted_sims[1]]['Jaccard'],y=0, text=names[1], showarrow=True, arrowhead=1, textangle=75)
+if similarity_dict[sorted_sims[1]]['Jaccard'] == similarity_dict[sorted_sims[2]]['Jaccard']:
+    fig2.add_annotation(x=similarity_dict[sorted_sims[2]]['Jaccard']-.05,y=0, text=names[2], showarrow=True, arrowhead=1, textangle=75)
+else:
+    fig2.add_annotation(x=similarity_dict[sorted_sims[2]]['Jaccard'],y=0, text=names[2], showarrow=True, arrowhead=1, textangle=75)
+if similarity_dict[sorted_sims[2]]['Jaccard'] == similarity_dict[sorted_sims[3]]['Jaccard']:
+    fig2.add_annotation(x=similarity_dict[sorted_sims[3]]['Jaccard']-.05,y=0, text=names[3], showarrow=True, arrowhead=1, textangle=75)
+else:
+    fig2.add_annotation(x=similarity_dict[sorted_sims[3]]['Jaccard'],y=0, text=names[3], showarrow=True, arrowhead=1, textangle=75)
+
 fig2.write_image(f"images/{sorted_sims[0]}_jaccard_matches.png", scale=2)
