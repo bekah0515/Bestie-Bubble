@@ -70,39 +70,43 @@ def nn_algorithm(repfile,inputfile):
 
     return index_to_name
 
-# def make_plot(representative_points, new_points)
-#     from sklearn.decomposition import PCA
-#     ###Reduce dimensions to 2D for visualization using PCA###
-#     pca = PCA(n_components=2)
-#     rep_points_2d = pca.fit_transform(representative_points)
-#     new_points_2d = pca.transform(new_points)
+    from sklearn.decomposition import PCA
+    ###Reduce dimensions to 2D for visualization using PCA###
+    pca = PCA(n_components=2)
+    rep_points_2d = pca.fit_transform(representative_points)
+    new_points_2d = pca.transform(new_points)
 
-#     #Plot representative points
-#     plt.figure(figsize=(10, 6))
-#     plt.scatter(rep_points_2d[:, 0], rep_points_2d[:, 1], color='black', label='Representative Points', alpha=0.6)
+    #Plot representative points
+    plt.figure(figsize=(10, 6))
+    plt.scatter(rep_points_2d[:, 0], rep_points_2d[:, 1], color='black', label='Representative Points', alpha=0.6)
 
-#     #Plot new points
-#     plt.scatter(new_points_2d[:, 0], new_points_2d[:, 1], color='red', label='New Points', marker='X', s=100)
+    #Plot new points
+    plt.scatter(new_points_2d[:, 0], new_points_2d[:, 1], color='red', label='New Points', marker='X', s=100)
 
-#     #Draw lines to the 10 nearest neighbors for each new point
-#     for i, (dists, idxs) in enumerate(zip(distances, indices)):
-#         for idx in idxs:
-#             plt.plot([new_points_2d[i, 0], rep_points_2d[idx, 0]],
-#                     [new_points_2d[i, 1], rep_points_2d[idx, 1]], 'k--', linewidth=0.5)
+    #Draw lines to the 10 nearest neighbors for each new point
+    for i, (dists, idxs) in enumerate(zip(distances, indices)):
+        for idx in idxs:
+            plt.plot([new_points_2d[i, 0], rep_points_2d[idx, 0]],
+                    [new_points_2d[i, 1], rep_points_2d[idx, 1]], 'k--', linewidth=0.5)
 
-#     # Annotate each new point with its name
-#     for i, name in enumerate(new_point_names):
-#         plt.text(new_points_2d[i, 0] + 0.02, new_points_2d[i, 1] + 0.02, name, color='red', fontsize=10)
+    # Annotate each new point with its name
+    for i, name in enumerate(new_point_names):
+        plt.text(new_points_2d[i, 0] + 0.02, new_points_2d[i, 1] + 0.02, name, color='red', fontsize=10)
 
-#     plt.xlabel("PCA Component 1")
-#     plt.ylabel("PCA Component 2")
-#     plt.legend()
-#     #plt.savefig(f'2D_NN_plot.png', format='png')
-#     plt.title("2D Visualization of New Points and their Nearest Neighbors")
-#     plot=plt.show()
-#     return plot
+    plt.xlabel("PCA Component 1")
+    plt.ylabel("PCA Component 2")
+    plt.legend()
+    plt.title("2D Visualization of New Points and their Nearest Neighbors")
+    #save the plot
+    plt.savefig("./nearest_neighbor_plot.png", format = 'png', dpi = 300)
+    plt.show()
 
-# #repfile = sys.argv[1]
-# #inputfile = sys.argv[2]
+repfile = sys.argv[1]
+inputfile = sys.argv[2]
+top3matches = nn_algorithm(repfile, inputfile)
+print(top3matches)
+
+#repfile = sys.argv[1]
+#inputfile = sys.argv[2]
 
 
