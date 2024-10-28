@@ -13,6 +13,26 @@
 ## Reading in Numerical Data
 ### Reading in the Test Data
 
+#### NamedSubInput.py
+Generate Fake Names and add them as the first column for the public data set we found. Not technically part of the pipeline, but a very fun package! 
+```
+import pandas as pd
+from faker import Faker
+
+#Generate 1000 fake names
+fake = Faker()
+random_names = [fake.name() for _ in range(1000)]
+# Read the existing CSV file
+df = pd.read_csv('/Users/pfb2024/BestieBubble2/Bestie-Bubble/sub.trimmed.file.csv')
+# Insert an empty column at the first position
+df.insert(0, 'Name', '')
+# Populate the 'Name' column with random names
+df['Name'] = random_names[:len(df)]
+# Save the updated DataFrame to a new CSV file
+df.to_csv('named.sub.trimmed.csv', index=False)
+print("Updated CSV file saved as 'updated_file.csv'")
+```
+
 #### InputToDict.py
 This reads in our test data set and breaks it up into a dictionary.
 
