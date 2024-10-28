@@ -205,9 +205,6 @@ if __name__ == "__main__":
 
 ### Reading in User Input as a New Line
 
-
-## Reading in Categorical Data
-
 ## Matching based on Categorical Data
 We also wanted to create a method for matching people to labs/PIs, but the matching variables would be categorical and not numerical. For example:
     Lab location: North East, South, Midwest, West
