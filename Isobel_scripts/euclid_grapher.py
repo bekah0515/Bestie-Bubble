@@ -10,13 +10,13 @@ def euclid_grapher(distances, user_name):
     return
 
 
-names = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+names = ['Abigail', 'Beth', 'Chris', 'Dwayne', 'Ella', 'Francine', 'Greg', 'Hugh', 'Indigo', 'Jack']
 
 euclid_distances = {}
 for name in names:
     euclid_distances[name] = random.random()
 
-euclid_distances['username'] = 0
+euclid_distances['Simon'] = 0
 sorted_distances = sorted(euclid_distances, key=euclid_distances.get)
 
 sorted_dict = {}
