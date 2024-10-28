@@ -119,7 +119,211 @@ if __name__ == "__main__":
 
 ### Reading in User Input as a New Line
 
+
 ## Reading in Categorical Data
+
+## Matching based on Categorical Data
+We also wanted to create a method for matching people to labs/PIs, but the matching variables would be categorical and not numerical. For example:
+    Lab location: North East, South, Midwest, West
+    Model organism: Human, Mouse, Fly, Worm, Yeast
+
+We could convert the data to numbers, but that could make some things seem more similar than others (based on the numbers assigned to each option), when in reality they are equally dissimilar. So how can we find similarity between categorical data?
+
+### Categorical Similarity Algorithms
+#### Jaccard Distance
+The Jaccard distance between two sets of values (A, B) is defined as:
+    overlap of A and B / sum of A and B
+
+As two sets of values have more in common, the overlap will increase and the sum will decrease. If A = B, the Jaccard distance = 1, and if A and B have no values in common, the Jaccard distance = 0.
+
+```
+jaccard_dict = {} #calulating Jaccard distance: (overlap of A and B) / (sum of A and B)
+for name in data_dict:
+    data_set = set(data_dict[name].values())
+    set_overlap = data_set & user_set
+    set_sum = data_set | user_set
+    jaccard = len(set_overlap) / len(set_sum)
+    jaccard_dict[name] = jaccard
+```
+
+#### Gower Similarity
+The Gower similarity between two sets of values (A, B) is defined as:
+    sum of [if value(A)=value(B), 1, if value(A)!=value(B)] over all variables / # of variables
+
+As two sets of values have more in common, there will be more 1s and thus the sum will increase. We could also add an additional value, where if value(A) is similar but not identical to value(B), we could add 0.5 as an intermediate value between 0 for no match and 1 for identical. 
+
+However, defining similar values is a future endeavor, and we just used 1 for match and 0 for no match.
+
+```
+gower_dict = {} #calculating Gower similarity: sum of (0 if not match, 1 if match) across variables / # of variables
+for name in data_dict:
+    gower_sum = 0
+    for key in user_data:
+        if user_data[key] == data_dict[name][key]: #0.5 if similar but not identical? Would need to define similar things
+            gower_sum +=1
+    gower = gower_sum / len(user_data)
+    gower_dict[name] = gower
+```
+
+These functions are dependent on a database of potential matches. This could eventually be real PIs, but for now it is randomly generated data.
+
+```
+#!/usr/bin/env python3
+
+import random
+location_list = ['North East', 'South', 'Midwest', 'West']
+dept_list = ['Molecular Biology', 'Chemistry', 'Neuroscience', 'Ecology', 'Bioinformatics']
+style_list = ['Wet', 'Dry', 'Both']
+interaction_list = ['Lots', 'Some', 'Minimal']
+org_list = ['Human', 'Mouse', 'Arabidopsis', 'Fly', 'Worm', 'Yeast', 'Zebrafish', 'Non-Model Organism', 'None']
+tech_list = ['Sequencing', 'Microscopy', 'Flow Cytometry', 'Western Blot', 'Coding']
+
+name_list = []
+with open('science_database.txt', 'r') as input_file:
+    for line in input_file:
+        line = line.rstrip()
+        name_list.append(line)
+
+data_dict = {}
+for name in name_list:
+    data_dict[name] = {}
+    data_dict[name]['location'] = random.choice(location_list)
+    data_dict[name]['department'] = random.choice(dept_list)
+    data_dict[name]['style'] = random.choice(style_list)
+    data_dict[name]['interaction'] = random.choice(interaction_list)
+    data_dict[name]['organism'] = random.choice(org_list)
+    data_dict[name]['technique'] = random.choice(tech_list)
+
+output_file = open('science_database.txt', 'w')
+for name in data_dict:
+    output_file.write(f'{name}\t{data_dict[name]['location']}\t{data_dict[name]['department']}\t{data_dict[name]['style']}\t{data_dict[name]['interaction']}\t{data_dict[name]['organism']}\t{data_dict[name]['technique']}\n')
+
+print('Database generated and written to science_database.txt')
+```
+
+### Getting User Input
+We limit the user input to a predefined list for each question to ensure there are some matches with the database. Allowing free input of categorical data would require a machine learning approach to group similar inputs together.
+
+```
+def science_quiz():
+    username = input('Enter your name:\n')
+    user_dict = {}
+
+    print('Where would you like to work?')
+    location_list = ['North East', 'South', 'Midwest', 'West']
+    location = input(f'Choose one: {location_list}\n').title()
+    if location not in location_list:
+        print(f'Location not recognized, please choose from the list')
+        location = input(f'Choose one: {location_list}\n')
+    user_dict['location'] = location
+
+    print('What department are you looking for?')
+    dept_list = ['Molecular Biology', 'Chemistry', 'Neuroscience', 'Ecology', 'Bioinformatics']
+    department = input(f'Choose one: {dept_list}\n').title()
+    if department not in dept_list:
+        print(f'Department not recognized, please choose from the list')
+        department = input(f'Choose one: {dept_list}\n')
+    user_dict['department'] = department
+
+    output_file = open('user_science_answers.txt', 'w')
+    output_file.write(f'{username}\t')
+    for question in user_dict:
+        output_file.write(f'{user_dict[question]}\t')
+```
+### Graphical Representation of Matches
+Finally, we use the calculated distances (Gower and Jaccard) to visualize the best matches to the user input. The below code is simplified for readability, the code called in the final script includes adjustments for text overlap. This code can also be used to visualize the calculated Euclidean distances in the personality matching program.
+
+```
+import pandas, os
+import plotly.express as px
+
+def similarity_grapher():
+
+    similarity_dict = {}
+    jaccard_similarity = {}
+    with open('categorical_similarity.txt', 'r') as read_file:
+        for line in read_file:
+            line = line.rstrip()
+            [name, jaccard, gower] = line.split('\t')
+            similarity_dict[name] = {}
+            similarity_dict[name]['Jaccard'] = float(jaccard)
+            similarity_dict[name]['Gower'] = float(gower)
+            jaccard_similarity[name] = float(jaccard)
+
+    sorted_sims = sorted(jaccard_similarity, key=jaccard_similarity.get, reverse=True)
+
+    sorted_dict = {}
+    for name in sorted_sims:
+        sorted_dict[name] = {}
+        sorted_dict[name]['Jaccard'] = similarity_dict[name]['Jaccard']
+        sorted_dict[name]['Gower'] = similarity_dict[name]['Gower']
+
+
+    colors = ['black'] * len(sorted_dict)
+    colors[0] = 'magenta'
+    colors[1] = '#FFD700'
+    colors[2] = '#C0C0C0'
+    colors[3] = '#CD7F32'
+    colors[len(sorted_dict)-1] = "#8FC554"
+
+    markers = ['circle'] * len(sorted_dict)
+    markers[0] = 'star'
+
+    sizes = [5] * len(sorted_dict)
+    sizes[0] = 20
+
+    names = [''] * len(sorted_dict)
+    names[0] = sorted_sims[0] + " 🦄"
+    names[1] = sorted_sims[1] + " 🥇"
+    names[2] = sorted_sims[2] + " 🥈"
+    names[3] = sorted_sims[3] + " 🥉"
+    names[len(sorted_dict) -1] = sorted_sims[len(sorted_dict)-1] + " 🐸"
+
+    text_position = ['top center'] * len(sorted_dict)
+    text_position[1] = 'bottom center'
+    text_position[3] = 'bottom center'
+
+    column_label = ['Jaccard','Gower']
+    similarities = pandas.DataFrame.from_dict(sorted_dict, orient='index', columns=column_label)
+    similarities['color'] = colors
+    similarities['marker'] = markers
+    similarities['y-axis'] = 0
+    similarities['size'] = sizes
+    similarities['name'] = names
+    similarities['textposition'] = text_position
+
+    if not os.path.exists('images'):
+        os.mkdir('images')
+
+
+    fig = px.scatter(similarities, x='Gower', y='y-axis', color='color', 
+                    color_discrete_map='identity', symbol='marker', 
+                    symbol_map='identity', size='size')
+    fig.update_yaxes(visible=False)
+    for distance in sorted_sims:
+        if names[sorted_sims.index(distance)] != "":
+            fig.add_annotation(x=sorted_dict[distance]['Gower'],y=0, 
+                            text=names[sorted_sims.index(distance)], 
+                            showarrow=True, arrowhead=1, textangle=75)  
+    fig.write_image(f"images/{sorted_sims[0]}_gower_matches.png", scale=2)
+```
+### Final Script
+The following script calls on the 3 functions defined in different scripts. The user answers a short quiz on the command line, then the match images are saved to a directory named "images" in the current directory. Eventually this could be part of the GUI, where you initially answer if you're looking for a personality match (numerical data) or lab match (categorical data).
+
+```
+#!/usr/bin/env python3
+
+import pandas, os
+import plotly.express as px
+from science_match_quiz import science_quiz
+from categorical_similarity import similarity_calc
+from euclid_grapher_science import similarity_grapher
+
+science_quiz()
+similarity_calc()
+similarity_grapher()
+```
+
 
 ## K-Nearest Neighbors Algorithm on Numerical Data
 The K-Nearest Neighbors algorithm is a powerful tool used in machine learning and pattern recognition to gorup or classify data. Given an item, this algorithm looks for the most similar items it has seen before and makes predictions or classifications based on them. Many social media and music platforms, such as Spotify, uses this algorithm to suggest new music you may enjoy!
