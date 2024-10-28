@@ -10,32 +10,7 @@
 * Extend GUI for visual disply of plotted outputs for BestieBubbles&trade;.
 
 ## Building the GUI 
-#!/Users/pfb2024/mamba/envs/projects/bin/python3
-
-#This is the home page 
-import ttkbootstrap as ttkb
-import tkinter as tk
-from PIL import Image, ImageTk
-import csv
-import os
-
-current_question = 0
-answers = ""
-
-def function1():
-    all_lines = []
-    with open("personality_data_info.txt", 'r') as input_file:
-        lines = input_file.readlines()
-        for line in lines:
-            line = line.strip().split("\t")
-            processed_line = '\t'.join(line[1:])
-            all_lines.append(processed_line)
-    return(all_lines)
-
-questions = function1()
-
-#function to create a new window 
-def open_new_window():
+```def open_new_window():
     if current_question < len(questions):
         display_question()
     else:
@@ -43,15 +18,10 @@ def open_new_window():
         export_to_csv(user_name)
        
         # match_page()
-# def open_new_window(question_number):
-#    for widget in overlay_frame.winfo_children():
-#         widget.destroy()
-#    second_page()
 
 def display_question():
     question_text = questions[current_question]
     
-    # Clear the previous widgets
     for widget in overlay_frame.winfo_children():
         widget.destroy()
 
@@ -84,16 +54,6 @@ def end_quiz():
     button10.pack()
     export_to_csv(user_name)
 
-def export_to_csv(user_name):
-    # Specify the file path (you can change this to your desired location)
-    file_path = os.path.expanduser(f'./{user_name}_answers.csv')
-    print(file_path)
-    # Write answers to CSV
-    with open(file_path, mode='w', newline='') as file:
-        writer = csv.writer(file) 
-        writer.writerow(answers.split(','))  # Write the collected answers
-
-
 #Make a window and add the image as the background 
 parent = tk.Tk()
 parent.title("Image in Tkinter")
@@ -120,84 +80,6 @@ def on_button1_click():
     label3.pack()
     overlay_frame.after(1000, open_new_window)
 
-def on_button2_click():
-    open_match()
-
-def open_match():
-    # Clear previous widgets
-    for widget in overlay_frame.winfo_children():
-        widget.destroy()
-    info_frame = tk.Frame(overlay_frame, bg='light sea green')
-    info_frame.pack(side="top", pady=(700, 20))  # Add padding to move it down
-
-    label_match = tk.Label(info_frame, text="Your top two matches are: April Tran and Grace Watson", font=("Arial", 40, "bold"), bg='light sea green')
-    label_match.pack(pady=10)
-
-    button11 = tk.Button(info_frame, text="Click here to get more information!", font=font, command = open_match2)
-    button11.pack(pady = 10)
-
-    image_frame2 = tk.Frame(overlay_frame, bg='light sea green')
-    image_frame2.pack(side="top", fill="x", pady = 20)  # Fill the width at the bottom
-
-    image6 = Image.open("Simon_bestie_matches.png")
-    image6 = image6.resize((1100, 800))
-    image6_tk = ImageTk.PhotoImage(image6)
-    image_label6 = tk.Label(image_frame2, image=image6_tk, bg='light sea green')
-    image_label6.image = image6_tk  # Keep a reference
-    image_label6.pack()
-
-
-
-      # Fill the width at the bottom
-    
-
-def open_match2():
-    for widget in overlay_frame.winfo_children():
-        widget.destroy()
-
-    # Adjust the padding for image_frame3
-    image_frame3 = tk.Frame(overlay_frame, bg='light sea green')
-    image_frame3.pack(side="top", pady=(700, 20))  # Add more top padding
-
-    # Load images 3, 4, and 5
-    image3 = Image.open("DavidDukeandAprilTran.png")
-    image4 = Image.open("DavidDukeandGraceWatson.png")
-    # image5 = Image.open("SMOLLYandAmanda Herrera MD.png")
-    image3 = image3.resize((500, 500))
-    image4 = image4.resize((500, 500))
-    # image5 = image5.resize((500, 500))
-
-    # Create PhotoImage references
-    image3_tk = ImageTk.PhotoImage(image3)
-    image4_tk = ImageTk.PhotoImage(image4)
-    # image5_tk = ImageTk.PhotoImage(image5)
-
-    # Create labels for images and grid them
-    image_label3 = tk.Label(image_frame3, image=image3_tk, bg='light sea green')
-    image_label3.image = image3_tk  # Keep a reference
-    image_label3.pack(side="left", padx=10, pady=10)
-
-    image_label4 = tk.Label(image_frame3, image=image4_tk, bg='light sea green')
-    image_label4.image = image4_tk  # Keep a reference
-    image_label4.pack(side="left", padx=10, pady=10)
-
-    # image_label5 = tk.Label(image_frame3, image=image5_tk, bg='light sea green')
-    # image_label5.image = image5_tk  # Keep a reference
-    # image_label5.pack(side="left", padx=10, pady=10)
-
-    # Create a frame for image 7
-    info_frame3 = tk.Frame(overlay_frame, bg='light sea green')
-    info_frame3.pack(side="top", pady=(20, 20))
-
-    image7 = Image.open("nearest_neighbor_plot.png")
-    image7 = image7.resize((900, 500))
-    image7_tk = ImageTk.PhotoImage(image7)
-
-    image_label7 = tk.Label(info_frame3, image=image7_tk, bg='light sea green')
-    image_label7.image = image7_tk  # Keep a reference
-    image_label7.pack(pady=10)
-
-
 #Add the other widgets 
 entry = tk.Entry(overlay_frame, font = font, justify = "center")
 button = tk.Button(overlay_frame, text = "Click here to begin!", command = on_button1_click, font = font)
@@ -213,9 +95,7 @@ button.pack(pady = 20)
 #button2.pack(pady = 20)
 image_label.pack()
 parent.mainloop()
-
-print(answers)
-
+```
 ## Reading in Numerical Data
 ### Reading in the Test Data
 
