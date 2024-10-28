@@ -98,3 +98,9 @@ Layla Torres	South	Ecology	Both	Minimal	Yeast	Coding
 Andrew Sanders	North East	Molecular Biology	Wet	Lots	Mouse	Western Blot
 Sophia Price	Midwest	Bioinformatics	Dry	Minimal	None	Flow Cytometry
 Lucas Edwards	South	Molecular Biology	Wet	Minimal	Fly	Flow Cytometry
+Majo Blanco Salazar	Midwest	Molecular Biology	Wet	Some	Human	Flow Cytometry
+Riley Kellermeyer	Midwest	Ecology	Both	Some	Non-Model Organism	Coding
+Josh Lynch	North East	Bioinformatics	Dry	Lots	Non-Model Organism	Coding
+Robert Dalipovic	North East	Bioinformatics	Dry	Lots	Non-Model Organism	Coding
+Jessen Bredeson	West	Bioinformatics	Dry	Some	Non-Model Organism	Coding
+Simon Prochnik	West	Bioinformatics	Dry	Minimal	Non-Model Organism	Coding
