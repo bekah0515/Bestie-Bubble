@@ -1,4 +1,4 @@
-#!/Users/pfb2024/mamba/envs/projects/bin/python3
+fi#!/Users/pfb2024/mamba/envs/projects/bin/python3
 
 #This is the home page 
 import ttkbootstrap as ttkb
@@ -118,7 +118,7 @@ def open_match():
     info_frame = tk.Frame(overlay_frame, bg='light sea green')
     info_frame.pack(side="top", pady=(700, 20))  # Add padding to move it down
 
-    label_match = tk.Label(info_frame, text="Your match is: _____", font=("Arial", 40, "bold"), bg='light sea green')
+    label_match = tk.Label(info_frame, text="Your top two matches are: April Tran and Grace Watson", font=("Arial", 40, "bold"), bg='light sea green')
     label_match.pack(pady=10)
 
     button11 = tk.Button(info_frame, text="Click here to get more information!", font=font, command = open_match2)
@@ -148,17 +148,17 @@ def open_match2():
     image_frame3.pack(side="top", pady=(700, 20))  # Add more top padding
 
     # Load images 3, 4, and 5
-    image3 = Image.open("SMOLLYandPamela Wheeler.png")
-    image4 = Image.open("SMOLLYandThomas Powell.png")
-    image5 = Image.open("SMOLLYandAmanda Herrera MD.png")
+    image3 = Image.open("DavidDukeandAprilTran.png")
+    image4 = Image.open("DavidDukeandGraceWatson.png")
+    # image5 = Image.open("SMOLLYandAmanda Herrera MD.png")
     image3 = image3.resize((500, 500))
     image4 = image4.resize((500, 500))
-    image5 = image5.resize((500, 500))
+    # image5 = image5.resize((500, 500))
 
     # Create PhotoImage references
     image3_tk = ImageTk.PhotoImage(image3)
     image4_tk = ImageTk.PhotoImage(image4)
-    image5_tk = ImageTk.PhotoImage(image5)
+    # image5_tk = ImageTk.PhotoImage(image5)
 
     # Create labels for images and grid them
     image_label3 = tk.Label(image_frame3, image=image3_tk, bg='light sea green')
@@ -169,9 +169,9 @@ def open_match2():
     image_label4.image = image4_tk  # Keep a reference
     image_label4.pack(side="left", padx=10, pady=10)
 
-    image_label5 = tk.Label(image_frame3, image=image5_tk, bg='light sea green')
-    image_label5.image = image5_tk  # Keep a reference
-    image_label5.pack(side="left", padx=10, pady=10)
+    # image_label5 = tk.Label(image_frame3, image=image5_tk, bg='light sea green')
+    # image_label5.image = image5_tk  # Keep a reference
+    # image_label5.pack(side="left", padx=10, pady=10)
 
     # Create a frame for image 7
     info_frame3 = tk.Frame(overlay_frame, bg='light sea green')
