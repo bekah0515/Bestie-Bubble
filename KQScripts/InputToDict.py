@@ -46,6 +46,10 @@ def FileToDict(filename):
 # Main execution block
 if __name__ == "__main__":
     # Example usage
+    import json
     file_path = '../BETA/30subs.named.csv'  
     user_dict = FileToDict(file_path)
-    print(user_dict)
+    with open('30UserSubbed.txt', 'w') as file:
+        json.dump(user_dict, file)
+
+
