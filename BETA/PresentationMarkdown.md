@@ -114,7 +114,7 @@ if __name__ == "__main__":
     user_dict = FileToDict(file_path)
     with open('30UserSubbed.txt', 'w') as file:
         json.dump(user_dict, file)
-
+```
 
 
 ### Reading in User Input as a New Line
