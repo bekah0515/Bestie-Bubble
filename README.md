@@ -7,6 +7,8 @@ Bekah
 Konstantin  
 Harshad   
 
+TA: Riley
+
 ## Project Goals:
 * Build a GUI to uptake new user information and inputs. 
 * Read in 1) numerical survey 2) categorical survey data for users into complex data structures in Python.
