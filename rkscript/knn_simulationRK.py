@@ -6,13 +6,32 @@ from sklearn.decomposition import PCA
 import numpy as np
 import matplotlib.pyplot as plt
 
-#Sample data:make 100 representative points with 5 features each
+###Generate Random Sample Data:make 100 representative points with 5 features each
 np.random.seed(42) #initialize the random number generator
 representative_points = 1+4*np.random.rand(100, 5)
-#print(representative_points)
+print(representative_points)
 
-#Test data for which we want to find the nearest neighbors by making 3 new points with 5 features each
-new_points = 1+4*np.random.rand(3, 5)
+# #Test data for which we want to find the nearest neighbors by making 3 new points with 5 features each
+# # new_points = 1+4*np.random.rand(3, 5)
+# # # Assign names to the new points
+# # new_point_names = ["New Point A", "New Point B", "New Point C"]
+##input user data
+user_dict = {'user1':{'agreeable':[5, 3, 4, 5],'Extraverted':[1, 2, 4], 'Openness':[1, 2, 4], 'Conscientiousness':[5, 4, 4], 'Neuroticism':[2, 2, 4]}, 'user2':{'agreeable':[1, 3, 2, 1],'Extraverted':[5, 4, 3, 3], 'Openness':[5, 4, 3, 2], 'Conscientiousness':[1, 2, 4], 'Neuroticism':[1, 2, 0]}}
+
+#Calculate the average for each feature of each user
+averages_user = {}
+for user, traits in user_dict.items():
+    averages_user[user] = {}
+    for trait, scores in traits.items():
+        avg_score = sum(scores) / len(scores)  # Calculate the average score
+        averages_user[user][trait] = avg_score
+
+#convert averages to array of lists per value and use as our input
+new_points = np.array([list(features.values()) for features in averages_user.values()])
+print(new_points)
+
+new_point_names = list(averages_user.keys())
+print(new_point_names)
 
 #Initialize the NearestNeighbors model to find the 10 nearest neighbors
 n_neighbors = 10
@@ -49,6 +68,10 @@ for i, (dists, idxs) in enumerate(zip(distances, indices)):
     for idx in idxs:
         plt.plot([new_points_2d[i, 0], rep_points_2d[idx, 0]],
                  [new_points_2d[i, 1], rep_points_2d[idx, 1]], 'k--', linewidth=0.5)
+
+# Annotate each new point with its name
+for i, name in enumerate(new_point_names):
+    plt.text(new_points_2d[i, 0] + 0.02, new_points_2d[i, 1] + 0.02, name, color='red', fontsize=10)
 
 plt.xlabel("PCA Component 1")
 plt.ylabel("PCA Component 2")
