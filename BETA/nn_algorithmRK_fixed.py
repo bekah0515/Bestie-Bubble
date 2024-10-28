@@ -1,4 +1,4 @@
-#!/Users/pfb2024/mamba/envs/bio/bin/python
+#!/Users/pfb2024/mamba/envs/bio/bin/python3
 import sys, os
 def nn_algorithm(repfile,inputfile):
     import pandas as pd
@@ -8,7 +8,7 @@ def nn_algorithm(repfile,inputfile):
     import sys
     from InputToDatabase import FileToDict
     ############################
-    
+
     ##Generate representative points database##
     rep_dict = FileToDict(repfile)
     #print(rep_dict)
@@ -17,7 +17,8 @@ def nn_algorithm(repfile,inputfile):
         averages[user] = {}
         for trait, scores in traits.items():
             scores = [int(item) for item in scores]
-            avg_score = sum(scores) / len(scores)  # Calculate the average score
+            avg_score = sum(scores) / len(scores) 
+            # Calculate the average score
             averages[user][trait] = avg_score
 
     #convert averages to array of lists per value and use as our input
@@ -31,14 +32,14 @@ def nn_algorithm(repfile,inputfile):
     ##import user data
 
     user_dict = FileToDict(inputfile)
-
     #Calculate the average for each feature of each user
     averages_user = {}
     for user, traits in user_dict.items():
         averages_user[user] = {}
         for trait, scores in traits.items():
             scores = [int(item) for item in scores]
-            avg_score = sum(scores) / len(scores)  # Calculate the average score
+            avg_score = sum(scores) / len(scores) 
+            # Calculate the average score
             averages_user[user][trait] = avg_score
 
     #convert averages to array of lists per value and use as our input
@@ -64,16 +65,18 @@ def nn_algorithm(repfile,inputfile):
     for i, (dists, idxs) in enumerate(zip(distances, indices)):
         match_name_list = [representative_points_names[idx] for idx in idxs]
         user_name = new_point_names[i]
-        #print(f"Name:{user_name}")
-        #print("Indices of Nearest Neighbors:", idxs)
-        #print("Names of top 3 matches:", match_name_list)
-        #print("Distances to Nearest Neighbors:", dists)
+        print(f"Name:{user_name}")
+        print("Indices of Nearest Neighbors:", idxs)
+        print("Names of top 3 matches:", match_name_list)
+        print("Distances to Nearest Neighbors:", dists)
 
     result_dict = {}
     for i, (new_point, dists, idxs) in enumerate(zip(new_point_names, distances, indices)):
         index_to_name_list = [representative_points_names[idx] for idx in idxs]
         inner_dict = {neighbor: dist for neighbor, dist in zip(index_to_name_list, dists)}
         result_dict[new_point] = inner_dict
+
+    neighbor_keys_array = [list(neighbors.keys()) for neighbors in result_dict.values()]
 
     from sklearn.decomposition import PCA
     ###Reduce dimensions to 2D for visualization using PCA###
@@ -91,8 +94,7 @@ def nn_algorithm(repfile,inputfile):
     #Draw lines to the 10 nearest neighbors for each new point
     for i, (dists, idxs) in enumerate(zip(distances, indices)):
         for idx in idxs:
-            plt.plot([new_points_2d[i, 0], rep_points_2d[idx, 0]],
-                    [new_points_2d[i, 1], rep_points_2d[idx, 1]], 'k--', linewidth=0.5)
+            plt.plot([new_points_2d[i, 0], rep_points_2d[idx, 0]], [new_points_2d[i, 1], rep_points_2d[idx, 1]], 'k--', linewidth=0.5)
 
     # Annotate each new point with its name
     for i, name in enumerate(new_point_names):
@@ -104,12 +106,13 @@ def nn_algorithm(repfile,inputfile):
     plt.title("2D Visualization of New Points and their Nearest Neighbors")
     #save the plot
     plt.savefig("./nearest_neighbor_plot.png", format = 'png', dpi = 300)
-    plt.show()
+    #plt.show()
+    #return_stuff=[result_dict,neighbor_keys_array]
+    return result_dict, neighbor_keys_array
 
-    return match_name_list, inner_dict
 
 repfile = sys.argv[1]
 inputfile = sys.argv[2]
-top3matches = nn_algorithm(repfile, inputfile)
-print(top3matches)
-
+result_dict, list_of_matches = nn_algorithm(repfile, inputfile)
+print("result_dict:", result_dict)
+print("list of matches:", list_of_matches)
