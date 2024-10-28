@@ -539,7 +539,7 @@ The K-Nearest Neighbors algorithm is a powerful tool used in machine learning an
     b. average the scores for each attribute
     c. assign username as key and a list of these scores as value.
 2. Do the same for my representative data (database from which I want to find a match) as well. (e.g. {'name':[a,b,c,d,e], 'name2':[a,b,c,d,e],...})
-3. Activate nearest-neighbors object and run the nearest neighbors algorithm, which creates tree-structures for fast and efficient searching of nearest-neighbors and spits out your top n nearest neighbors!
+3. Activate nearest-neighbors object and run the nearest neighbors algorithm, which creates tree-structures (KD trees) for fast and efficient searching of nearest-neighbors and spits out your top n nearest neighbors!
     In this algorithm, "representative_points" refers to the 'database' and "new_points" refers to the new user we want to match.
 ```
     #Initialize the NearestNeighbors model to find the 3 nearest neighbors
