@@ -49,5 +49,6 @@ if __name__ == "__main__":
     ##Use EuDisDict to Make SpyderPlots
     DTSTR.SpyderScPlot(user, EuDisUserVsMatch)
 
-    #make 1-d plot of distances
-    euclid_grapher(result_dict, user)
+    # #make 1-d plot of distances
+    # import plotly.express as px
+    # euclid_grapher(result_dict, user)
