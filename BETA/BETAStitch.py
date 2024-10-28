@@ -28,8 +28,13 @@ if __name__ == "__main__":
 
     #Generate "Read-in-able Dictionary"
     import json
-    
-    file_path = '../BETA/30subs.named.csv'  
+    import pandas as pd
+    import sys
+    df1 = pd.read_csv(repfile, header=None)
+    df2 = pd.read_csv(inputfile, header=None)
+    combined_df = pd.concat([df1,df2], axis=0, ignore_index = False)
+    combined_df.to_csv("combined_file.csv", header=None, index = False)
+    file_path = "combined_file.csv"  
     user_dict = ITDB.FileToDict(file_path)
     with open('30UserSubbed.txt', 'w') as file:
         json.dump(user_dict, file)
