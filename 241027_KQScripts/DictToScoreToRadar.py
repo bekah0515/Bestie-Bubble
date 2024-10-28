@@ -44,6 +44,7 @@ def makeradar(df, user, match): #From SpyderPlot8.py
        #ax.set_yticks([20, 40, 60, 80, 100])
        #ax.set_yticklabels(["20", "40", "60", "80", "100"], color="black", size=8)
        ax.set_ylim(0, 100)
+       plt.title(match, pad=20)
 
        values0 = df.loc[0].drop('group').values
        ax.bar(angles_mids, values0, width=angles[1] - angles[0],
