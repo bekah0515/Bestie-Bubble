@@ -104,3 +104,4 @@ Josh Lynch	North East	Bioinformatics	Dry	Lots	Non-Model Organism	Coding
 Robert Dalipovic	North East	Bioinformatics	Dry	Lots	Non-Model Organism	Coding
 Jessen Bredeson	West	Bioinformatics	Dry	Some	Non-Model Organism	Coding
 Simon Prochnik	West	Bioinformatics	Dry	Minimal	Non-Model Organism	Coding
+Harshad Ingle	Midwest	Molecular Biology	Wet	Some	Mouse	Flow Cytometry
