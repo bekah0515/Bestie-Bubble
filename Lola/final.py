@@ -1,6 +1,7 @@
 #!/Users/pfb2024/mamba/envs/projects/bin/python3
 
 #This is the home page 
+import ttkbootstrap as ttkb
 import tkinter as tk
 from PIL import Image, ImageTk
 import csv
@@ -23,7 +24,7 @@ questions = function1()
 
 #function to create a new window 
 def open_new_window():
-    if current_question < len(questions)+1:
+    if current_question < len(questions):
         display_question()
     else:
         end_quiz()
@@ -73,12 +74,11 @@ def end_quiz():
 
 def export_to_csv(user_name):
     # Specify the file path (you can change this to your desired location)
-    file_path = os.path.expanduser(f'~/{user_name}_answers.csv')
+    file_path = os.path.expanduser(f'./{user_name}_answers.csv')
     print(file_path)
     # Write answers to CSV
     with open(file_path, mode='w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow(['Answers'])  # Write header
+        writer = csv.writer(file) 
         writer.writerow(answers.split(','))  # Write the collected answers
 
 
@@ -112,26 +112,79 @@ def on_button2_click():
     open_match()
 
 def open_match():
+    # Clear previous widgets
     for widget in overlay_frame.winfo_children():
         widget.destroy()
-    parent1 = tk.Toplevel()
-    parent1.title("Your Match")
-    parent1.attributes("-fullscreen", True) 
-    image2 = Image.open("Bestie_artwork2.png")
-    image2 = image.resize((parent.winfo_screenwidth(), parent.winfo_screenheight()))
-    image2 = ImageTk.PhotoImage(image2)
-    image_label2 = tk.Label(parent1, image = image2)
-    image_label2.pack()
-    label_match = tk.Label(match_window, text="Your match is: _____", font=("Arial", 40, "bold"), bg='light sea green')
-    label_match.pack(pady=20)
+    info_frame = tk.Frame(overlay_frame, bg='light sea green')
+    info_frame.pack(side="top", pady=(700, 20))  # Add padding to move it down
 
-#Make it so that the widgets can be layered on 
-overlay_frame2 = tk.Frame(parent, bg='light sea green', bd=0)
-overlay_frame2.place(relx=0.5, rely=0.2, anchor='center')
+    label_match = tk.Label(info_frame, text="Your match is: _____", font=("Arial", 40, "bold"), bg='light sea green')
+    label_match.pack(pady=10)
 
-# def on_button2_click():
-#     name = entry.get()
-#     overlay_frame.after(1000, lambda: open_new_window(2))
+    button11 = tk.Button(info_frame, text="Click here to get more information!", font=font, command = open_match2)
+    button11.pack(pady = 10)
+
+    image_frame2 = tk.Frame(overlay_frame, bg='light sea green')
+    image_frame2.pack(side="top", fill="x", pady = 20)  # Fill the width at the bottom
+
+    image6 = Image.open("Simon_bestie_matches.png")
+    image6 = image6.resize((1100, 800))
+    image6_tk = ImageTk.PhotoImage(image6)
+    image_label6 = tk.Label(image_frame2, image=image6_tk, bg='light sea green')
+    image_label6.image = image6_tk  # Keep a reference
+    image_label6.pack()
+
+
+
+      # Fill the width at the bottom
+    
+
+def open_match2():
+    for widget in overlay_frame.winfo_children():
+        widget.destroy()
+
+    # Adjust the padding for image_frame3
+    image_frame3 = tk.Frame(overlay_frame, bg='light sea green')
+    image_frame3.pack(side="top", pady=(700, 20))  # Add more top padding
+
+    # Load images 3, 4, and 5
+    image3 = Image.open("SMOLLYandPamela Wheeler.png")
+    image4 = Image.open("SMOLLYandThomas Powell.png")
+    image5 = Image.open("SMOLLYandAmanda Herrera MD.png")
+    image3 = image3.resize((500, 500))
+    image4 = image4.resize((500, 500))
+    image5 = image5.resize((500, 500))
+
+    # Create PhotoImage references
+    image3_tk = ImageTk.PhotoImage(image3)
+    image4_tk = ImageTk.PhotoImage(image4)
+    image5_tk = ImageTk.PhotoImage(image5)
+
+    # Create labels for images and grid them
+    image_label3 = tk.Label(image_frame3, image=image3_tk, bg='light sea green')
+    image_label3.image = image3_tk  # Keep a reference
+    image_label3.pack(side="left", padx=10, pady=10)
+
+    image_label4 = tk.Label(image_frame3, image=image4_tk, bg='light sea green')
+    image_label4.image = image4_tk  # Keep a reference
+    image_label4.pack(side="left", padx=10, pady=10)
+
+    image_label5 = tk.Label(image_frame3, image=image5_tk, bg='light sea green')
+    image_label5.image = image5_tk  # Keep a reference
+    image_label5.pack(side="left", padx=10, pady=10)
+
+    # Create a frame for image 7
+    info_frame3 = tk.Frame(overlay_frame, bg='light sea green')
+    info_frame3.pack(side="top", pady=(20, 20))
+
+    image7 = Image.open("nearest_neighbor_plot.png")
+    image7 = image7.resize((900, 500))
+    image7_tk = ImageTk.PhotoImage(image7)
+
+    image_label7 = tk.Label(info_frame3, image=image7_tk, bg='light sea green')
+    image_label7.image = image7_tk  # Keep a reference
+    image_label7.pack(pady=10)
+
 
 #Add the other widgets 
 entry = tk.Entry(overlay_frame, font = font, justify = "center")
