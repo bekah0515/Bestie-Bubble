@@ -108,12 +108,14 @@ def nn_algorithm(repfile,inputfile):
     plt.savefig("./nearest_neighbor_plot.png", format = 'png', dpi = 300)
     #plt.show()
     #return_stuff=[result_dict,neighbor_keys_array]
+
     return user_name, result_dict, neighbor_keys_array
 
 
-# repfile = sys.argv[1]
-# inputfile = sys.argv[2]
-# user_name, result_dict, list_of_matches = nn_algorithm(repfile, inputfile)
-# print("UserName:", user_name)
-# print("list of matches:", list_of_matches)
-# print("result_dict:", result_dict)
+repfile = sys.argv[1]
+inputfile = sys.argv[2]
+user_name, result_dict, list_of_matches = nn_algorithm(repfile, inputfile)
+print("UserName:", user_name)
+print("list of matches:", list_of_matches)
+
+print("result_dict:", result_dict)
