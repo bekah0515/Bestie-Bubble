@@ -12,6 +12,6 @@ TA: Riley
 ## Project Goals:
 * Build a GUI to uptake new user information and inputs. 
 * Read in 1) numerical survey 2) categorical survey data for users into complex data structures in Python.
-* Leverage K-Nearest Neighbors Algorithm to determine top matches based on similarity and plot clusters.
-* Calculate Simularity Scores using Euclidean Distances and plot simuleratiy.
-* Extend GUI for visual disply of plotted outputs for BestieBubbles&trade;.
+* Use machine learning and pattern recognition via the K-Nearest Neighbors Algorithm to determine top matches.
+* Calculate Simularity Scores using Euclidean Distances and plot similarity.
+* Extend GUI for visual display of plotted outputs for BestieBubbles&trade;.
