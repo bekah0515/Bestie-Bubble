@@ -1,6 +1,7 @@
 # Bestie-Bubble
 ## Members
 Isobel  
-Lola 
-Bekah 
-
+Lola  
+Bekah  
+Konstantin  
+Harshad   
