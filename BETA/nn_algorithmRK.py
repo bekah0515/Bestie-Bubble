@@ -6,7 +6,7 @@ def nn_algorithm(repfile,inputfile):
     import numpy as np
     import matplotlib.pyplot as plt
     import sys
-    from InputToDict import FileToDict
+    from InputToDatabase import FileToDict
     ############################
     ##Generate representative points database##
     rep_dict = FileToDict(repfile)
