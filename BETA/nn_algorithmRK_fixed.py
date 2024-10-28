@@ -111,8 +111,8 @@ def nn_algorithm(repfile,inputfile):
     return result_dict, neighbor_keys_array
 
 
-repfile = sys.argv[1]
-inputfile = sys.argv[2]
-result_dict, list_of_matches = nn_algorithm(repfile, inputfile)
-print("result_dict:", result_dict)
-print("list of matches:", list_of_matches)
+# repfile = sys.argv[1]
+# inputfile = sys.argv[2]
+# result_dict, list_of_matches = nn_algorithm(repfile, inputfile)
+# print("result_dict:", result_dict)
+# print("list of matches:", list_of_matches)
