@@ -1,5 +1,5 @@
 #!/Users/pfb2024/mamba/envs/bio/bin/python
-import sys
+import sys, os
 def nn_algorithm(repfile,inputfile):
     import pandas as pd
     from sklearn.neighbors import NearestNeighbors
@@ -8,6 +8,7 @@ def nn_algorithm(repfile,inputfile):
     import sys
     from InputToDatabase import FileToDict
     ############################
+    
     ##Generate representative points database##
     rep_dict = FileToDict(repfile)
     #print(rep_dict)
@@ -61,14 +62,23 @@ def nn_algorithm(repfile,inputfile):
 
     #Output the results
     for i, (dists, idxs) in enumerate(zip(distances, indices)):
-        index_to_name = [representative_points_names[idx] for idx in idxs]
+        index_to_name_list = [representative_points_names[idx] for idx in idxs]
         user_name = new_point_names[i]
         # print(f"Name:{user_name}")
         # print("Indices of Nearest Neighbors:", idxs)
-        # print("Names of top 3 matches:", index_to_name)
+        # print("Names of top 3 matches:", index_to_name_list)
         # print("Distances to Nearest Neighbors:", dists)
 
-    return index_to_name
+    
+
+    # result_dict = {}
+    # for i, new_point in enumerate(new_point_names):
+    #     #create inner dictionary for each new point
+    #     inner_dict = {neighbor: dist for neighbor, dist in zip(nearest_neighbors_names[i], distances[i])}
+    #     result_dict[new_point] = inner_dict
+    #     print(inner_dict)
+
+
 
     from sklearn.decomposition import PCA
     ###Reduce dimensions to 2D for visualization using PCA###
@@ -101,12 +111,9 @@ def nn_algorithm(repfile,inputfile):
     plt.savefig("./nearest_neighbor_plot.png", format = 'png', dpi = 300)
     plt.show()
 
+    return index_to_name_list
 repfile = sys.argv[1]
 inputfile = sys.argv[2]
 top3matches = nn_algorithm(repfile, inputfile)
 print(top3matches)
-
-#repfile = sys.argv[1]
-#inputfile = sys.argv[2]
-
 
