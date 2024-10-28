@@ -52,7 +52,7 @@ def nn_algorithm(repfile,inputfile):
     ##############################
     ###Run NearestNeighbors function
     #Initialize the NearestNeighbors model to find the 3 nearest neighbors
-    n_neighbors = 3
+    n_neighbors = 4
     nearest_neighbors = NearestNeighbors(n_neighbors=n_neighbors, algorithm='auto')
 
     #Fit the model on the representative points
