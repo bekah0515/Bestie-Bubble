@@ -151,15 +151,14 @@ The K-Nearest Neighbors algorithm is a powerful tool used in machine learning an
         print("Names of top 3 matches:", match_name_list)
         print("Distances to Nearest Neighbors:", dists)
 ```
-4. Report output as the name of user, the indices of the matches, their corresponding names, and the distances between user and each match.
-5. Visualize this matching by PCA dimension reduction and plotting the first two PCA values.
+4. Report output as the name of user, list of indices of the matches, their corresponding names, and the distances between user and each match.
+5. Made a dictionary for the user with the matches(key) and their corresponding distances (value).
+6. The list of matched names and the dictionary of their distances are pushed into the next part of the pipeline. 
+7. Visualize this matching by PCA dimension reduction and plotting the first two PCA values.
 Example:
 ![nearest_neighbor_plot](https://github.com/user-attachments/assets/5b316d80-4301-451b-8a98-f375acdf76cd)
 
 
-
-
-4. 
 ## Spyder Plotting Simularity Scores
 
 #### TopMatchDict.py
