@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 
-import sys
+import sys, pandas, os
 import InputToDict as ITD
 from nn_algorithmRK_fixed import nn_algorithm
 import InputToDatabase as ITDB
 import TopMatchDict as TMD
 import DictToScoreToRadar as DTSTR
+import plotly.express as px
+from euclid_grapher import euclid_grapher
 
 
 # Main execution block
@@ -46,3 +48,6 @@ if __name__ == "__main__":
 
     ##Use EuDisDict to Make SpyderPlots
     DTSTR.SpyderScPlot(user, EuDisUserVsMatch)
+
+    #make 1-d plot of distances
+    euclid_grapher(result_dict, user)
