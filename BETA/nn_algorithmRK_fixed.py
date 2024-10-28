@@ -65,10 +65,10 @@ def nn_algorithm(repfile,inputfile):
     for i, (dists, idxs) in enumerate(zip(distances, indices)):
         match_name_list = [representative_points_names[idx] for idx in idxs]
         user_name = new_point_names[i]
-        print(f"Name:{user_name}")
-        print("Indices of Nearest Neighbors:", idxs)
-        print("Names of top 3 matches:", match_name_list)
-        print("Distances to Nearest Neighbors:", dists)
+        # print(f"Name:{user_name}") 
+        # print("Indices of Nearest Neighbors:", idxs)
+        # print("Names of top 3 matches:", match_name_list)
+        # print("Distances to Nearest Neighbors:", dists)
 
     result_dict = {}
     for i, (new_point, dists, idxs) in enumerate(zip(new_point_names, distances, indices)):
@@ -108,11 +108,12 @@ def nn_algorithm(repfile,inputfile):
     plt.savefig("./nearest_neighbor_plot.png", format = 'png', dpi = 300)
     #plt.show()
     #return_stuff=[result_dict,neighbor_keys_array]
-    return result_dict, neighbor_keys_array
+    return user_name, result_dict, neighbor_keys_array
 
 
 # repfile = sys.argv[1]
 # inputfile = sys.argv[2]
-# result_dict, list_of_matches = nn_algorithm(repfile, inputfile)
-# print("result_dict:", result_dict)
+# user_name, result_dict, list_of_matches = nn_algorithm(repfile, inputfile)
+# print("UserName:", user_name)
 # print("list of matches:", list_of_matches)
+# print("result_dict:", result_dict)
